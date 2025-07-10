@@ -1,3 +1,13 @@
+# WebGAL @ PartialEngine
+
+本二创引擎通过魔改 CSS 文件实现了全透明的效果，允许你在没有任何背景时，使用 OBS Studio 捕获带有 Alpha 通道的 WebGAL 画面，因此带有 Alpha 通道，你并不需要进行扣绿幕/蓝幕等操作。
+
+由于该二创引擎是用于 After Effects / Premiere Pro 工作流的，你也可以叫这个引擎为“GoAE”。因此你应该考虑是否真的需要使用这个引擎。
+
+本二创引擎还修改画布分辨率至 3840x2160，允许你尽可能能捕获到清晰的画面。
+
+## 接下来是原仓库的 README
+
 ![WebGAL Slogan](https://github.com/OpenWebGAL/WebGAL/assets/30483415/ede38a39-d054-4fee-a3e9-fc5e764f358d)
 
 ### **[English Version](/README_EN.md)** | **[日本語版](/README_JP.md)** | **[한국어](/README_KO.md)** | **[Français](/README_FR.md)**

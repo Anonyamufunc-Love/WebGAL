@@ -57,7 +57,9 @@ a:active {
 }
 
 body {
-  background-color: #000;
+  // background-color: #000;
+  // 修改为透明
+  background-color: transparent;
   font-size: 16px;
   margin: 0;
   font-family: "WebgalUI", -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -158,7 +160,9 @@ code {
 .App {
   height: 100%;
   width: 100%;
-  background: rgba(0, 0, 0, 1);
+  // background: rgba(0, 0, 0, 1);
+  // 修改为透明
+  background: transparent;
   overflow: hidden;
   perspective: 0;
   -webkit-overflow-scrolling: auto;

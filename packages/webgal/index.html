@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="zh-Hans">
+
 <head>
-  <meta charset="UTF-8"/>
+  <meta charset="UTF-8" />
   <link rel="icon" type="image/x-icon" href="./icons/favicon.ico" />
   <link rel="apple-touch-icon" href="./icons/apple-touch-icon.png">
   <link rel="manifest" href="./manifest.json" />
@@ -11,10 +12,11 @@
 
 <body>
   <!--快速显示落地页，让用户感知不到加载的过程-->
-  <div id="ebg"></div>
+  <!-- 取消落地页，便于 OBS 录制 -->
+  <!-- <div id="ebg"></div> -->
   <div id="Title_enter_page" onclick="enter()" style="
-            width: 2560px;
-            height: 1440px;
+            width: 3840px;
+            height: 2160px;
             overflow: hidden;
             position: absolute;
             top: 0;
@@ -94,8 +96,8 @@
     const ua = navigator.userAgent;
     const isIOSDevice = !!ua.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/);
     function resize() {
-      const targetHeight = 1440;
-      const targetWidth = 2560;
+      const targetHeight = 2160;
+      const targetWidth = 3840;
 
       const h = window.innerHeight; // 窗口高度
       const w = window.innerWidth; // 窗口宽度
@@ -108,7 +110,7 @@
       let mh2os = targetWidth / 2 - w / 2; // 竖屏时 y轴移动距离
       let mw2os = targetHeight / 2 - h / 2; // 竖屏时 x轴移动距离
       let transform = '';
-      let ebgTransform = '';
+      // let ebgTransform = '';
       const root = document.getElementById('root'); // 获取根元素
       const title = document.getElementById('Title_enter_page');
       const ebg = document.getElementById('ebg');
@@ -138,11 +140,11 @@
         }
         mw2os = -mw2os;
         if (h * (9 / 16) >= w) {
-          ebgTransform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomH2 * 1.75},${zoomH2 * 1.75})`;
+          // ebgTransform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomH2 * 1.75},${zoomH2 * 1.75})`;
           transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomH2},${zoomH2})`;
         }
         if (h * (9 / 16) < w) {
-          ebgTransform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomW2 * 1.75},${zoomW2 * 1.75})`;
+          // ebgTransform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomW2 * 1.75},${zoomW2 * 1.75})`;
           transform = `rotate(90deg) translate(${mw2os}px, ${mh2os}px) scale(${zoomW2},${zoomW2})`;
         }
         /**
