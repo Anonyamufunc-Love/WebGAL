@@ -32,6 +32,8 @@ import {
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
 import styles from './bottomControlPanel.module.scss';
+import { set } from 'lodash';
+import { useState } from 'react';
 
 export const BottomControlPanel = () => {
   const t = useTrans('gaming.');
@@ -56,6 +58,8 @@ export const BottomControlPanel = () => {
   const setMenuPanel = (menuPanel: MenuPanelTag) => {
     dispatch(setMenuPanelTag(menuPanel));
   };
+  // 抑制显示
+  const [contorlsSuppress, setContorlsSuppress] = useState(false);
 
   const saveData = useSelector((state: RootState) => state.saveData.saveData);
   let fastSlPreview = (
@@ -78,11 +82,19 @@ export const BottomControlPanel = () => {
     );
   }
 
+  // 抑制显示
+  const getContorlsVisibility = () => {
+    if (contorlsSuppress) {
+      return 'hidden';
+    }
+    return GUIStore.controlsVisibility ? 'visible' : 'hidden';
+  };
+
   return (
     // <div className={styles.ToCenter}>
     <>
       {GUIStore.showTextBox && stageState.enableFilm === '' && (
-        <div className={styles.main} style={{ visibility: GUIStore.controlsVisibility ? 'visible' : 'hidden' }}>
+        <div className={styles.main} style={{ visibility: getContorlsVisibility() }}>
           {GUIStore.showTextBox && (
             <span
               className={styles.singleButton}
@@ -101,6 +113,28 @@ export const BottomControlPanel = () => {
                 strokeWidth={strokeWidth}
               />
               <span className={styles.button_text}>{t('buttons.hide')}</span>
+            </span>
+          )}
+          {/* 抑制显示 */}
+          {GUIStore.showTextBox && (
+            <span
+              className={styles.singleButton}
+              style={{ fontSize }}
+              onClick={() => {
+                setComponentVisibility('showTextBox', false);
+                setContorlsSuppress(true);
+                playSeClick();
+              }}
+              onMouseEnter={playSeEnter}
+            >
+              <PreviewCloseOne
+                className={styles.button}
+                theme="outline"
+                size={size}
+                fill="#f5f5f7"
+                strokeWidth={strokeWidth}
+              />
+              <span className={styles.button_text}>{t('buttons.suppress')}</span>
             </span>
           )}
           {!GUIStore.showTextBox && (

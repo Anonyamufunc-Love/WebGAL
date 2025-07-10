@@ -173,6 +173,7 @@ const zhCn = {
   gaming: {
     noSaving: '暂无存档',
     buttons: {
+      suppress: '抑制显示',
       hide: '隐藏',
       show: '显示',
       backlog: '回想',
